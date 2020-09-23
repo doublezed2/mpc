@@ -118,13 +118,14 @@ include("db-config.php");
             </table>
             <?php
             if(isset($_POST['to-date'])):
-              $rt_sql = "SELECT p_quantity, u_price, discount FROM profit WHERE p_quantity < 0 AND p_date >= '$from_date' AND p_date < '$to_date'";
+              echo $rt_sql = "SELECT p_quantity, r_price, packing, discount FROM profit WHERE p_quantity < 0 AND p_date >= '$from_date' AND p_date < '$to_date'";
               $rt_result = $conn->query($rt_sql);
               $rt_total_amount = 0;
               $rt_subtotal = 0;
               if ($rt_result->num_rows > 0) {
                 while($rt_row = $rt_result->fetch_assoc()){
-                  $rt_subtotal = $rt_row['p_quantity']*$rt_row['u_price'];
+                  $u_price = $rt_row['r_price']/$rt_row['packing'];
+                  $rt_subtotal = $rt_row['p_quantity']*$u_price;
                   $rt_discount = ($rt_subtotal * $rt_row['discount'])/100;
                   $rt_subtotal = $rt_subtotal - $rt_discount; 
                   $rt_total_amount = $rt_total_amount+$rt_subtotal;

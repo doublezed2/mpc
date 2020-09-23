@@ -289,13 +289,3 @@ $(document).ready(function(){
 
     $('.date-mask').mask('0000-00-00');
 });
-
-// $('input').keydown(function(e) {
-//   console.info(e.keyCode);
-//   if (e.keyCode==39) {
-//     $(this).parent().next().children('input').focus();
-//   }
-//   if (e.keyCode==37) {
-//     $(this).parent().prev().children('input').focus();
-//   }
-// });
