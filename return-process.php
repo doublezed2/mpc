@@ -15,23 +15,27 @@ $p_expiry = ($_POST['p_exp'] == "") ? NULL : $_POST['p_exp'];
 $p_retail = $_POST['p_rp'];
 $p_tp = $_POST['p_tp'];
 $p_up = $_POST['p_up'];
+$fl_p_discount = 0;
+$fl_p_up = floatval($p_up);
+$discount = $fl_p_up * ($fl_p_discount)/100;
+$discount_price = $fl_p_up - $discount;
 
-$select = "SELECT discount FROM products WHERE p_name = '$p_name'";
-$s_result = $conn->query($select);
+// $select = "SELECT discount FROM products WHERE p_name = '$p_name'";
+// $s_result = $conn->query($select);
 
-if ($s_result->num_rows > 0) {
-  $s_row = $s_result->fetch_assoc();
-  $fl_p_discount = floatval($s_row["discount"]);
-  $fl_p_up = floatval($p_up);
-  $discount = $fl_p_up * ($fl_p_discount)/100;
-  $discount_price = $fl_p_up - $discount;
-} else {
-    exit("Error: Product not found");
-}
+// if ($s_result->num_rows > 0) {
+//   $s_row = $s_result->fetch_assoc();
+//   $fl_p_discount = floatval($s_row["discount"]);
+//   $fl_p_up = floatval($p_up);
+//   $discount = $fl_p_up * ($fl_p_discount)/100;
+//   $discount_price = $fl_p_up - $discount;
+// } else {
+//     exit("Error: Product not found");
+// }
 
 $n_qty = $p_qty * -1;
-echo $pr_sql = "INSERT INTO profit (p_name,p_company,p_type,p_date,p_quantity,r_price,t_price,u_price,discount)
-VALUES ('$p_name','$p_company','$p_type', '$p_date', $n_qty, '$p_retail', '$p_tp', '$p_up', $fl_p_discount)";
+$pr_sql = "INSERT INTO profit (p_name,p_company,p_type,p_date,p_quantity,r_price,t_price,packing,discount)
+VALUES ('$p_name','$p_company','$p_type', '$p_date', $n_qty, $p_retail, $p_tp, $p_packing, $fl_p_discount)";
 if ($conn->query($pr_sql) === TRUE) {
 } else {
     echo "Error: " . $pr_sql . "<br>" . $conn->error;

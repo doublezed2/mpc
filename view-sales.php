@@ -118,7 +118,7 @@ include("db-config.php");
             </table>
             <?php
             if(isset($_POST['to-date'])):
-              echo $rt_sql = "SELECT p_quantity, r_price, packing, discount FROM profit WHERE p_quantity < 0 AND p_date >= '$from_date' AND p_date < '$to_date'";
+              $rt_sql = "SELECT p_quantity, r_price, packing, discount FROM profit WHERE p_quantity < 0 AND p_date >= '$from_date' AND p_date < '$to_date'";
               $rt_result = $conn->query($rt_sql);
               $rt_total_amount = 0;
               $rt_subtotal = 0;
