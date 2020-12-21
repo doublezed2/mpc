@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+<nav class="col-md-2 d-none d-md-block bg-primary sidebar">
     <div class="sidebar-sticky">
     <ul class="nav flex-column">
         <li class="nav-item">
@@ -52,6 +52,10 @@
            Print Stock Report
         </a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" href="logout.php">Sign out (<?php echo $_SESSION["user_name"];?>)</a>
+        </li>
+        
         <?php
         endif;
         ?>

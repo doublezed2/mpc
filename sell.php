@@ -10,7 +10,6 @@ else{
   $del_query = 'DELETE FROM `stock` WHERE total_stock < 1';
   $conn->query($del_query);
 ?>
-  <?php include("top-nav.php");?>
     <div class="container-fluid">
       <div class="row">
       <?php include("sidebar.php") ?>
