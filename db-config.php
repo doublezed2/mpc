@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "roots";
+$password = "1234567890";
 $dbname = "mpc_db";
 
 // Create connection
