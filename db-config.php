@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
+$username = "";
 $password = "";
-$dbname = "mpc";
+$dbname = "zubanmeo_mpcapp";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
