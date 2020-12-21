@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "pos";
+$dbname = "mpc_db";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
