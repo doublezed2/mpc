@@ -1,9 +1,14 @@
 <?php
-include("db-config.php"); 
-session_start();
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+if(empty($username && $password )){
+    header("Location:index.php?empty=0");
+
+} ///end if
+else{
+include("db-config.php"); 
+session_start();
 $sql = "SELECT * from users WHERE username = '$username' AND password = '$password'";
 $result = $conn->query($sql);
 if($result->num_rows > 0){
@@ -19,7 +24,7 @@ if($result->num_rows > 0){
     header("Location:sell.php");
 }
 else{
-    header("Location:index.php");
+    header("Location:index.php?empty=0");
 }
-
+} /// Else
 ?>

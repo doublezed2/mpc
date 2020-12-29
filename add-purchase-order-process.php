@@ -3,7 +3,6 @@ session_start();
 if($_SESSION["user_type"] != 'admin_user'){
   header("Location:sell.php");
 }
-
 include("db-config.php"); 
 $p_name = $_POST['p_name'];
 $p_company = $_POST['p_comp'];
@@ -18,6 +17,7 @@ $p_up = $_POST['p_up'];
 $p_packing = $_POST['p_pck'];
 $p_qty = $_POST['p_qty'];
 $total_stock = $_POST['p_pck'] * $_POST['p_qty'];
+
 $sql = "INSERT INTO stock (p_name, company, p_type, p_date, invoice_no, p_batch, p_expiry, r_price, t_price, u_price, packing, quantity, total_stock)
 VALUES ('$p_name','$p_company','$p_type', '$p_date', '$invoice_no', '$p_batch', '$p_expiry', '$p_retail', '$p_tp', '$p_up', '$p_packing', $p_qty, $total_stock)";
 
@@ -28,6 +28,5 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
-
 
 ?>

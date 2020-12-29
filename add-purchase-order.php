@@ -92,7 +92,7 @@ include("header.php") ?>
             <div class="row">
               <div class="col-md-2 mb-2">
                 <label for="cc-name"></label>
-                <button class="btn btn-primary btn-lg btn-block" id="add-po">Add</button>
+                <button class="btn btn-primary btn-lg btn-block" id="add-po" name = "add">Add</button>
               </div>
             </div>
             <hr class="mb-4">

@@ -1,3 +1,4 @@
+
 <?php    
 session_start();
 if($_SESSION["user_type"] != 'admin_user'){
@@ -20,14 +21,20 @@ include("header.php") ?>
               <div class="col-md-4 mb-3">
                 <label for="cc-name">Name</label>
                 <input type="text" class="form-control" name="dist_name">
+   
               </div>
               <div class="col-md-4 mb-2">
                 <label for="cc-name">Add</label>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Add</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name = "add">Add</button>
               </div>
             </div>
             <hr class="mb-4">
             <h4 class="mb-3">List of Distribution</h4>
+                   <?php
+  if(isset($_POST['add'])){    
+echo"yes";
+}    
+          ?>
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
@@ -65,6 +72,7 @@ include("header.php") ?>
               </tbody>
             </table>
           </form>
+         
         </div>
       </div>
         </main>
