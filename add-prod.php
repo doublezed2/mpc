@@ -47,6 +47,21 @@ include("header.php") ?>
               <div class="col-md-3 mb-2">
                 <label for="cc-name">Add</label>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Add</button>
+                     <?php
+           if(empty($_GET['true'])){}
+           else{
+           $error = $_GET['true'];
+           switch ($error) {
+           case "1":
+           echo "<p style= 'color:red;'>Name field is required!</p><br>";
+           break;
+           case "2":
+           echo "<p style ='color:green;'>Your record has been successfully added</p>";
+           break;
+           default:
+            }
+           }
+           ?>
               </div>
             </div>
             <hr class="mb-4">
